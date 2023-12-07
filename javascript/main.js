@@ -5,7 +5,6 @@ const searchBtn = document.querySelector('.searchbar button');
 const initialDefaultImagePath = 'images/default.png';
 document.querySelector('.weather-icon').setAttribute('src', initialDefaultImagePath);
 
-// Make the API request
 async function fetchWeatherData() {
   try {
     const response = await fetch(apiUrl);
@@ -44,14 +43,14 @@ function formatTime(timestamp, timezoneOffset) {
     const localDate = new Date(localTimestamp * 1000);
     const isoTimeString = localDate.toISOString();
   
-    // Extract the time part (HH:mm) from the ISO string
+    // Extract the time part from the ISO string 
     const isoTime = isoTimeString.slice(11, 16);
   
     return isoTime;
   }
 
 
-// Function to update weather data on the page. locates html classes
+// Function to update weather data on the page. locates html classes, links to JSON
 function updateWeatherData(data) {
   document.querySelector('.city').innerHTML = data.name;
   document.querySelector('.temp').innerHTML = Math.round(data.main.temp) + '°F';
@@ -83,8 +82,7 @@ async function fetchWeatherData() {
 function updateImage(weatherMain) {
     const formattedWeatherMain = weatherMain.toLowerCase().replace(/\s/g, '-');
     let imagePath;
-  
-    // Use if statements to determine the appropriate image path based on weather conditions
+
     if (weatherMain === 'Rain') {
       imagePath = 'images/rain.png';
     } else if (weatherMain === 'Clear') {
@@ -102,7 +100,7 @@ function updateImage(weatherMain) {
     }
 
     else {
-      // Default image if no specific condition matches
+      // Default image if no matching weather statement  
       imagePath = 'images/placeholder.png';
     }
   
