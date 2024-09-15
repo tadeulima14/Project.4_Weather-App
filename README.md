@@ -1,1 +1,1 @@
-A webpage I made for pre owned classic car sales. It features an auto scrolling image gallery as well as manual scroll controls. 
+A webpage I made to check the weather world wide, it makes calls to Openweathermap API. I have a library of images associated with the different weather conditions that display accordingly. 
